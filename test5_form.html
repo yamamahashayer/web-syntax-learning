@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form Example</title>
+</head>
+<body>
+    <h1>Learn HTML Forms</h1>
+
+    <form action="test5.php" method="POST">
+        <label for="Date">Date</label>
+        <input type="datetime-local" name="date" id="date" >
+
+
+
+
+        <!-- Text Input -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <br><br>
+
+        <!-- Email Input -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <br><br>
+
+        <!-- Password Input -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <!-- Radio Buttons -->
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br><br>
+
+        <!-- Checkboxes -->
+        <label for="hobbies">Hobbies:</label><br>
+        <input type="checkbox" id="hobby1" name="hobbies[]" value="Reading">
+        <label for="hobby1">Reading</label><br>
+        <input type="checkbox" id="hobby2" name="hobbies[]" value="Traveling">
+        <label for="hobby2">Traveling</label><br>
+        <input type="checkbox" id="hobby3" name="hobbies[]" value="Sports">
+        <label for="hobby3">Sports</label><br><br>
+
+        <!-- Dropdown -->
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option value="USA">United States</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">United Kingdom</option>
+            <option value="Australia">Australia</option>
+        </select>
+        <br><br>
+
+        <!-- Textarea -->
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" placeholder="Write your message here..."></textarea>
+        <br><br>
+
+        <!-- Submit and Reset Buttons -->
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <hr><hr>
+    <form method="post" action="/cgi-bin/feedback.pl">
+        <label for="fullname">الاسم الكامل:</label>
+        <input type="text" name="fullname" id="fullname" value="Enter your first and last names">
+    </form>
+    <form method="post">
+        <label for="password">كلمة المرور:</label>
+        <input type="password" name="password" id="password" size="45">
+    </form>
+    <form method="post">
+        <label for="comments">أدخل تعليقك:</label><br>
+        <textarea id="comments" name="comments" rows="5" cols="30"  wrap="soft"></textarea>
+
+
+        <select name="jobs" size="4">
+            <option value="doctor">طبيب</option>
+            <option value="engineer">مهندس</option>
+            <option value="teacher">معلم</option>
+            <option value="artist">فنان</option>
+            <option value="scientist">عالم</option>
+        </select>
+
+        <input type="range" min="100" max="5000" step="100" value="1000">
+        <input type="range" min="100" max="5000" step="100" value="1000" 
+        onchange="document.getElementById('display').innerHTML=this.value">
+        <span id="display">1000</span>
+
+
+    </form>
+    
+    
+</body>
+</html>

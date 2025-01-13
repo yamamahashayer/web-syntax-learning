@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <script>
+        function saveToLs(){
+            // let stName=document.getElementById("txtStName").value;
+            // let stG=document.getElementsByName("rbGender")[0].value;
+            // localStorage.setItem("stName",stName);
+            // localStorage.setItem("stG",stG);
+            let stName = document.getElementById("txtStName").value;
+            let genders = document.getElementsByName("rbGender");
+            let stGender = "";
+
+            for (let i = 0; i < genders.length; i++) {
+                if (genders[i].checked) {
+                    stGender = genders[i].value; // Get the value of the selected radio button
+                    break; // Exit the loop once the selected button is found
+                }
+            }
+            
+            // Save to localStorage
+            localStorage.setItem("stName", stName);
+            localStorage.setItem("stGender", stGender);
+
+
+
+
+
+        }
+        function save(){
+
+            alert(window.location);
+
+
+        }
+    </script>
+</head>
+<body>
+    <!-- <form action="test12_jsQuery.html" method="get">
+        <table>
+            <tr>
+                <td>Student Name:</td>
+                <td><input type="text" name="txtStName" id="txtStName"></td>
+            </tr>
+
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <label for="rbFemale">
+                        <input type="radio" name="rbGender" value="F" id="rbFemale"> Female
+                    </label>
+                    <label for="rbMale">
+                        <input type="radio" name="rbGender" value="M" id="rbMale"> Male
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+    </form> -->
+<form action="test12_jsQuery.html" method="get">
+<table>
+            <tr>
+                <td>Student Name:</td>
+                <td><input type="text" name="txtStName" id="txtStName"></td>
+            </tr>
+
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <label for="rbFemale">
+                        <input type="radio" name="rbGender" value="F" id="rbFemale"> Female
+                    </label>
+                    <label for="rbMale">
+                        <input type="radio" name="rbGender" value="M" id="rbMale"> Male
+                    </label>
+                </td>
+            </tr>   
+            <tr>
+                <button onclick="saveToLs()">Send to next page LocalStorage</button>
+                
+            </tr>
+        </table>
+</form>
+</body>
+</html>

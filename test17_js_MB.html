@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Message Box with Overlay</title>
+    <style>
+        /* Overlay Style */
+        #overlay {
+            z-index: 100;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            visibility: hidden;
+            background-color: silver;
+            opacity: 0.5;
+        }
+
+        /* Message Box Style */
+        #msgBox {
+            width: 250px;
+            height: 150px;
+            visibility: hidden;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #000080;
+            color: #ffffff;
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 200;
+        }
+
+        #msgBox table {
+            width: 100%;
+            height: 100%;
+        }
+
+        #msgBox td {
+            padding: 5px;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Button to Open the Dialog -->
+    <input type="button" value="Show Dialog" onclick="open_dialog();">
+
+    <!-- Overlay -->
+    <div id="overlay"></div>
+
+    <!-- Message Box -->
+    <div id="msgBox">
+        <table>
+            <tr height="15px">
+                <td><b>Message Box Title</b></td>
+            </tr>
+            <tr>
+                <td style="background-color:#ffffff;" align="center" valign="center">
+                    <b>Message Box Text</b><br />
+                    <div class="button-container">
+                        <input type="button" value="OK" onclick="close_dialog('OK');">
+                        <input type="button" value="Cancel" onclick="close_dialog('Cancel');">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // Function to close the dialog box and hide the overlay
+        function close_dialog(action) {
+            document.getElementById("msgBox").style.visibility = "hidden";
+            document.getElementById("overlay").style.visibility = "hidden";
+            alert("You clicked: " + action); // Displaying which button was clicked
+        }
+
+        // Function to open the dialog box and show the overlay
+        function open_dialog() {
+            document.getElementById("msgBox").style.visibility = "visible";
+            document.getElementById("overlay").style.visibility = "visible";
+        }
+    </script>
+
+</body>
+</html>

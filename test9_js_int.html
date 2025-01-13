@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interval and Timeout Processing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interval and Timeout Processing</h1>
+    <button onclick="startInterval()">Start Interval</button>
+    <button onclick="stopInterval()">Stop Interval</button>
+    <button onclick="startTimeout()">Start Timeout</button>
+    <button onclick="stopTimeout()">Stop Timeout</button>
+    <div id="output"></div>
+
+    <script>
+        let intervalID; // Variable to store interval ID
+        let timeoutID;  // Variable to store timeout ID
+
+        // Function to demonstrate setInterval
+        function startInterval() {
+            const output = document.getElementById("output");
+            let count = 0;
+            if (!intervalID) { // Avoid multiple intervals
+                intervalID = setInterval(() => {
+                    count++;
+                    output.textContent = `Interval count: ${count}`;
+                }, 1000); // Execute every 1 second
+            }
+        }
+
+        // Function to stop the interval
+        function stopInterval() {
+            if (intervalID) {
+                clearInterval(intervalID);
+                intervalID = null; // Reset the interval ID
+                document.getElementById("output").textContent = "Interval stopped.";
+            }
+        }
+
+        // Function to demonstrate setTimeout
+        function startTimeout() {
+            const output = document.getElementById("output");
+            output.textContent = "Timeout set. Waiting for 3 seconds...";
+            timeoutID = setTimeout(() => {
+                output.textContent = "Timeout executed after 3 seconds!";
+            }, 3000); // Execute after 3 seconds
+        }
+
+        // Function to stop the timeout
+        function stopTimeout() {
+            if (timeoutID) {
+                clearTimeout(timeoutID);
+                timeoutID = null; // Reset the timeout ID
+                document.getElementById("output").textContent = "Timeout stopped.";
+            }
+        }
+    </script>
+</body>
+</html>

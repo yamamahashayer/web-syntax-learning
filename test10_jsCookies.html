@@ -1,0 +1,222 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Example</title>
+    <script>
+        // Function to create/set a cookie
+        function setCookie(name, value, days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Convert days to milliseconds
+            var expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + encodeURIComponent(value) + "; " + expires + "; path=/";
+        }
+
+        // Function to read/get a cookie
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var c = cookies[i].trim();
+                if (c.indexOf(nameEQ) === 0) {
+                    return decodeURIComponent(c.substring(nameEQ.length));
+                }
+            }
+            return null;
+        }
+
+        // Function to delete a cookie
+        function deleteCookie(name) {
+            setCookie(name, "", -1); // Set expiry to a past date
+        }
+
+        // Function to check and display the cookie
+        function checkCookie() {
+            var user = getCookie("username");
+            if (user) {
+                alert("Welcome back, " + user + "!");
+            } else {
+                user = prompt("Please enter your name:", "");
+                if (user && user !== null) {
+                    setCookie("username", user, 365); // Save for 365 days
+                    alert("Cookie set! Welcome, " + user + "!");
+                }
+            }
+        }
+
+        // Function to delete the username cookie
+        function clearCookie() {
+            deleteCookie("username");
+            alert("Username cookie has been deleted.");
+        }
+    </script>
+</head>
+<body>
+    <h1>Cookie Example</h1>
+    <p>This example demonstrates how to use cookies in JavaScript.</p>
+
+    <button onclick="checkCookie()">Check Cookie</button>
+    <button onclick="clearCookie()">Delete Cookie</button>
+
+    <form onsubmit="saveUsername(event)">
+        <label for="username">Set a new username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Save Username</button>
+    </form>
+
+    <script>
+        // Function to handle form submission and save the username as a cookie
+        function saveUsername(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+            var username = document.getElementById("username").value;
+            setCookie("username", username, 365); // Save for 365 days
+            alert("Username cookie has been set to: " + username);
+        }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        form, .actions {
+            margin: 20px 0;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+        .output {
+            background: #bc9898;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        // Function to create or set a cookie
+        function setCookie(name, value, days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Convert days to milliseconds
+            var expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + encodeURIComponent(value) + "; " + expires + "; path=/";
+        }
+
+        // Function to get/read a specific cookie by name
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var c = cookies[i].trim();
+                if (c.indexOf(nameEQ) === 0) {
+                    return decodeURIComponent(c.substring(nameEQ.length));
+                }
+            }
+            return null;
+        }
+
+        // Function to read all cookies as a string
+        function readAllCookies() {
+            return document.cookie || "No cookies found.";
+        }
+
+        // Function to delete a specific cookie by name
+        function deleteCookie(name) {
+            setCookie(name, "", -1); // Set expiry to a past date
+        }
+
+        // Function to check for a specific cookie and handle user interaction
+        function checkCookie() {
+            var user = getCookie("username");
+            if (user) {
+                alert("Welcome back, " + user + "!");
+            } else {
+                user = prompt("Please enter your name:", "");
+                if (user && user !== null) {
+                    setCookie("username", user, 365); // Save for 365 days
+                    alert("Cookie set! Welcome, " + user + "!");
+                }
+            }
+        }
+
+        // Function to display all cookies in the output area
+        function showAllCookies() {
+            var cookies = readAllCookies();
+            document.getElementById("cookieOutput").textContent = cookies;
+        }
+
+        // Function to clear all cookies by setting their expiry to a past date
+        function clearAllCookies() {
+            var cookies = document.cookie.split("; ");
+            cookies.forEach(function(cookie) {
+                var eqPos = cookie.indexOf("=");
+                var name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+                deleteCookie(name);
+            });
+            alert("All cookies have been deleted.");
+            showAllCookies(); // Update output
+        }
+    </script>
+</head>
+<body>
+    <h1>Improved Cookie Management Example</h1>
+    <p>This example demonstrates creating, reading, and deleting cookies using JavaScript.</p>
+
+    <!-- Actions -->
+    <div class="actions">
+        <button onclick="checkCookie()">Check or Set Username Cookie</button>
+        <button onclick="deleteCookie('username')">Delete Username Cookie</button>
+        <button onclick="showAllCookies()">Show All Cookies</button>
+        <button onclick="clearAllCookies()">Clear All Cookies</button>
+    </div>
+
+    <!-- Form to Set a New Cookie -->
+    <form onsubmit="saveCustomCookie(event)">
+        <label for="cookieName">Cookie Name:</label>
+        <input type="text" id="cookieName" name="cookieName" required>
+        <br>
+        <label for="cookieValue">Cookie Value:</label>
+        <input type="text" id="cookieValue" name="cookieValue" required>
+        <br>
+        <label for="cookieDays">Expiry (in days):</label>
+        <input type="number" id="cookieDays" name="cookieDays" min="1" required>
+        <br>
+        <button type="submit">Save Cookie</button>
+    </form>
+
+    <!-- Output Area -->
+    <div class="output">
+        <strong>All Cookies:</strong>
+        <pre id="cookieOutput">No cookies found.</pre>
+    </div>
+
+    <script>
+        // Function to handle form submission and save a custom cookie
+        function saveCustomCookie(event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+            var name = document.getElementById("cookieName").value;
+            var value = document.getElementById("cookieValue").value;
+            var days = parseInt(document.getElementById("cookieDays").value);
+            setCookie(name, value, days);
+            alert("Cookie '" + name + "' has been set!");
+            showAllCookies(); // Update output
+        }
+
+        // Display all cookies on page load
+        showAllCookies();
+    </script>
+</body>
+</html>

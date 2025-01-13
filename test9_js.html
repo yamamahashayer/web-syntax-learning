@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont{
+            width: 600px;
+            height: 400px;
+            border: solid rgb(42, 35, 172) 5px;
+            position: relative; /* Ensures child position is relative to this container */
+            overflow: hidden; /* Keeps the circle inside the container */
+        }
+        #movC{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            border:  solid red 3px;
+            background-color: rgb(209, 83, 83);
+            position: relative;
+        }
+        p:nth-child()
+    </style>
+
+
+    <script>
+        function showCoord(){
+        let x =event.clientX;
+        let y=event.clientY;
+        document.getElementById("showCoor").innerText = `(${x},${y})`;
+        // $("#showCoor").innerText='(${x},${y})';  
+        }
+
+        function inti() {
+            for (let i = 1; i < 4; i++) {
+                let pa = document.getElementById(`para${i}`); 
+                pa.addEventListener('click', cPa, false);
+            }
+        }
+        function cPa(){
+            let el = event.currentTarget; 
+            el.style.color = 'red'; 
+            
+        }
+
+
+        let cx = 0; // Circle's x position
+        let cy = 0; // Circle's y position
+        let xchang = 4; // Horizontal speed
+        let ychang = 3; // Vertical speed
+
+
+        // // function movCircle(){
+        
+        //     const circle = document.getElementById('movC');
+
+        //     // Update positions
+        //     cx += xchang;
+        //     cy += ychang;
+
+        //     // Reverse direction if hitting container boundaries
+        //     if (cx > 550 || cx < 0) { // 600 (container width) - 50 (circle width) = 550
+        //         xchang *= -1;
+        //     }
+        //     if (cy > 350 || cy < 0) { // 400 (container height) - 50 (circle height) = 350
+        //         ychang *= -1;
+        //     }
+
+        //     // Apply positions to the circle
+        //     circle.style.left = cx + 'px';
+        //     circle.style.top = cy + 'px';
+        // }
+        
+        function movCircle() {
+            const circle = document.getElementById('movC');
+            // Update positions
+            cx += xchang;
+            cy += ychang;
+            // Reverse direction if hitting container boundaries
+            if (cx > 550 || cx < 0) { // 600 (container width) - 50 (circle width) = 550
+                xchang *= -1;
+            }
+            if (cy > 350 || cy < 0) { // 400 (container height) - 50 (circle height) = 350
+                ychang *= -1;
+            }
+
+            // Apply positions to the circle
+            circle.style.left = cx + 'px';
+            circle.style.top = cy + 'px';
+        }
+        window.onload = () => {
+            inti();
+            setInterval(movCircle, 25);
+            
+        };
+        
+        // Alert Example
+        function showAlert() {
+            alert("This is an alert message!"); // Displays a simple message
+        }
+
+        // Confirm Example
+        function showConfirm() {
+            const userResponse = confirm("Do you want to proceed?");
+            if (userResponse) {
+                alert("You chose to proceed.");
+            } else {
+                alert("You chose to cancel.");
+            }
+        }
+
+        // Prompt Example
+        function showPrompt() {
+            const userName = prompt("What is your name?", "Guest"); // Default value is 'Guest'
+            if (userName) {
+                alert(`Hello, ${userName}!`);
+            } else {
+                alert("You didn't enter your name.");
+            }
+        }
+    </script>
+</head>
+<body onmousemove="showCoord()"> 
+    <button  >Stop or Move</button>
+
+    <div id="cont">
+        <div id="movC"></div>
+    </div>
+    <p id="showCoor"></p>
+    <div id="divOFparas">
+    <p id="para1">
+        paratest paratest paratest paratest paratest paratest paratest
+        paratest paratest paratest paratest paratest paratest paratest 
+        paratest paratest paratest paratest paratest paratest paratest 
+        
+    </p>
+    <p id="para2">
+        paratest paratest paratest paratest paratest paratest paratest
+        paratest paratest paratest paratest paratest paratest paratest
+        paratest paratest paratest paratest paratest paratest paratest 
+        
+    </p>
+    <p id="para3">
+        paratest paratest paratest paratest paratest paratest paratest
+        paratest paratest paratest paratest paratest paratest paratest 
+        paratest paratest paratest paratest paratest paratest paratest 
+        
+    </p>
+
+</div>
+    <h1>JavaScript Message Boxes Example</h1>
+    <button onclick="showAlert()">Show Alert</button>
+    <button onclick="showConfirm()">Show Confirm</button>
+    <button onclick="showPrompt()">Show Prompt</button>
+
+</body>
+</html>

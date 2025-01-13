@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Sibling Selectors</title>
+    <style>
+        /* Styles for adjacent sibling (div + h1) */
+        div + h1 {
+            background-color: rgb(22, 167, 216);
+            border: 2px solid blue;
+            padding: 10px;
+        }
+
+        /* Styles for general sibling (div ~ h1) */
+        div ~ h1 {
+            background-color: lightgreen;
+            border: 2px solid green;
+            padding: 10px;
+        }
+        .box {
+            width: 200px;
+            height: 100px;
+            border: 2px solid black;
+            margin: 20px;
+            padding: 10px;
+            overflow: auto; /* Try changing to visible, hidden, or scroll */
+        }
+
+    /* Static (default) */
+    .static-box {
+        
+      position: static;
+      background-color: lightblue;
+      
+    }
+
+    /* Relative */
+    .relative-box {
+      position: relative;
+      top: 20px;
+      left: 90px;
+      background-color: lightgreen;
+    }
+
+    /* Absolute */
+    .container {
+      position: relative;
+      border: 2px dashed black;
+      padding: 20px;
+      margin: 20px;
+      
+    }
+    .absolute-box {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: orange;
+    }
+
+    /* Fixed */
+    .fixed-box {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: crimson;
+    }
+
+    /* Sticky */
+    .sticky-box {
+      position: sticky;
+      top: 0;
+      background-color: purple;
+    }
+    </style>
+</head>
+<body>
+    <div>Div 1</div>
+    <h1>Adjacent Sibling H1 (selected by div + h1)</h1>
+    <p>This paragraph is in between and is ignored by div + h1.</p>
+    <h1>General Sibling H1 (selected by div ~ h1)</h1>
+    <h1>Another General Sibling H1 (selected by div ~ h1)</h1>
+    
+    <div>Div 2</div>
+    <h1>Adjacent Sibling H1 (selected by div + h1)</h1>
+    <p>Another paragraph ignored by div + h1.</p>
+    <h1>General Sibling H1 (selected by div ~ h1)</h1>
+    <p>This paragraph is just for spacing.</p>
+    
+
+    <h1>CSS Overflow Property</h1>
+
+    <div class="box" style="overflow: visible;">
+        <strong>Overflow: visible</strong><br>
+        This is some long text that will extend outside the box. Observe how it flows out of the box boundaries.iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    </div>
+
+    <div class="box" style="overflow: hidden;">
+        <strong>Overflow: hidden</strong><br>
+        This is some long text that will extend outside the box. The text outside the box will not be visible.iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    </div>
+
+    <div class="box" style="overflow: scroll;">
+        <strong>Overflow: scroll</strong><br>
+        This is some long text that will extend outside the box. Scrollbars are added even if not required.iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    </div>
+
+    <div class="box" style="overflow: auto;">
+        <strong>Overflow: auto</strong><br>
+        This is some long text that will extend outside the box. Scrollbars will appear only if needed.iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    </div>
+    
+
+    <h1>CSS Positioning Types</h1>
+
+    <!-- Static Position -->
+    <div class="box static-box">
+        Static Position (Default)
+    </div>
+
+    <!-- Relative Position -->
+    <div class="box relative-box">
+        Relative Position (20px from top and left)
+    </div>
+
+    <!-- Absolute Position -->
+    <div class="container">
+        <p>This is the containing block (relative).</p>
+        <div class="box absolute-box">
+        Absolute Position (relative to containing block)
+        </div>
+    </div>
+
+    <!-- Fixed Position -->
+    <div class="box fixed-box">
+        Fixed Position (relative to viewport)
+    </div>
+
+    <!-- Sticky Position -->
+    <div class="box sticky-box">
+        Sticky Position (sticks to the top while scrolling)
+    </div>
+
+    <!-- Additional Content for Scrolling -->
+    <div style="height: 1500px; background-color: lightgray;">
+        <p>Scroll down to see how sticky and fixed positioning behave.</p>
+    </div>
+</body>
+</html>
+

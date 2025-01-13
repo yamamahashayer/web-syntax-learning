@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="/style.css">
+
+    <style>
+        
+        
+        .div1,.div2,.div3{
+        margin: 10px;
+        text-align: center;
+        display: inline-block;
+        background-color: aquamarine;
+        width: 90px;
+        height: 50px;
+        outline:solid  rgb(12, 8, 8) 3px ;
+        padding: 5px;
+        }
+        
+        .element{     
+            width: 400px;
+            background-color: rgb(45, 133, 133); 
+            padding: 2%;
+            border-left:  100px red !important ;
+            border-style:dashed;
+            padding: 5px;
+            
+        }
+        .element-2{visibility: hidden;}
+    
+        .div1{border: solid  red 5px;}
+        .div2{border-color:blue green  ;border-style: solid; }
+        .div3{ border-color:red  green blue  yellow;border-style: dashed; }
+                /*
+        .assign-2-shape-1,.assign-2-shape-2,.assign-2-shape-3,.assign-2-shape-4{width: 400px; height: 800px;color:  aliceblue; background-image: url(/css-assignment-5-8.png); text-align: center;}
+        
+        .assign-1-shape-1{background-color: rgb(138 43 226 /50%);}
+        .assign-1-shape-2{background-color: rgb(138 43 226 /10%);}
+        
+
+        .assign-2-shape-1 { background-repeat: no-repeat;  background-size: cover; background-size: 80;}
+        .assign-2-shape-2 {background-repeat: repeat-y; }
+        .assign-2-shape-3 {background-repeat: repeat-x;}
+        .assign-2-shape-4 { background-repeat: repeat;}
+           */
+
+        /* div.b{ background-color:red;} */
+        .c1{ background-color:rgb(73, 35, 178);}
+        .c2{ background-color:rgb(110, 74, 80);}
+        .c3{ background-color:rgb(31, 210, 37);}
+        p{font: icon; background-color: blanchedalmond;}
+        p#num4 {background-color: rgb(46, 228, 86); }
+        
+        div>div>h1 {background-color:darkmagenta;}
+        div>h1{background-color:rgb(158, 38, 66);}
+        
+        div + h1 {background-color: rgb(46, 16, 216); border: 2px solid red; }
+        div ~ h1 {border-color: rgb(24, 192, 29) ;}
+        
+        div + ul { border: 3px solid blue; padding: 10px; }
+        div ~ ul { background-color: rgb(211, 149, 149); padding: 10px; }
+        ul { list-style-type: square; }
+        ul li { margin: 5px 0; } 
+
+    </style>
+</head>
+<body>
+    <header  style="position: fixed; background-color: rgb(55 197 149/30%);padding-left: 10px;" >  <h1>Make a text in header fixed position</h1> </header>
+    <section style="padding-top: 120px; "> make a text in section </section>
+    <hr>
+
+    <section style="float: right;background-color: rgba(139, 88, 22, 0.3); height: 100px;; "> test float</section>
+
+
+    
+    <div class="div1">div1</div>
+    <div class="div2">div2</div>
+    <div class="div3">div3</div>
+
+    <div class="element element-1">This Is Important Note</div>
+    <div class="element element-2">This Is Important Note</div>
+    <div class="element element-3">This Is Important Note</div>
+
+
+
+
+
+    <hr>
+
+
+
+    <div class="assign-2-shape-1">Normal Div</div>
+    <div class="assign-2-shape-2">Normal Div</div>
+    <div class="assign-2-shape-3">Normal Div</div>
+    <div class="assign-2-shape-4">Normal Div</div>
+
+    
+    <hr>
+    <div class="assign-1-shape-1" >Normal Div</div>
+    <div class="assign-1-shape-2">Normal Div</div>
+    <div class="assign-1-shape-3">Normal Div</div>
+
+
+    <hr>
+
+    <div>First DIV</div>
+    <h1>First H1 (Adjacent Sibling)</h1>
+    <p>Some paragraph in between.</p>
+
+    <h1>Second H1 (General Sibling)</h1>
+    <h1>Third H1 (General Sibling)</h1>
+
+    <div>Second DIV</div>
+    <h1>Fourth H1 (Adjacent Sibling of Second DIV)</h1>
+    <h1>Fifth H1 (General Sibling of Second DIV)</h1>
+    <hr>
+
+
+    <div>First DIV</div>
+    <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+    </ul>
+    <p>Some text in between.</p>
+    <ul>
+        <li>Another List Item 1</li>
+        <li>Another List Item 2</li>
+    </ul>
+    <div>Second DIV</div>
+    <ul>
+        <li>Third List Item 1</li>
+        <li>Third List Item 2</li>
+    </ul>
+
+    <hr>
+    <div>
+        <h1> inside div>h1 </h1>
+        <div>
+            <h1> inside div>div>h1 </h1>
+        </div>
+        <h1> inside div>h1 </h1>
+    </div>
+    <hr>
+    text for test <span>span/ bloack </span>
+    <hr>
+    text for test <div>div /inline</div>
+    
+
+    <hr>
+    <P style="background-color: aqua;">SOME TEXT FOR CSS 1</P>
+    <P style="display: inline;">SOME TEXT FOR CSS 2 <span>change bolcke to inline </span></P> 
+    <P style="display: none;">SOME TEXT FOR CSS 3</P>
+    <p id="num4">SOME TEXT FOR CSS 4</p>
+    <p class="c1" >SOME TEXT FOR CSS 5</p>
+
+    <hr>
+    <p class="c1 c2" >yyyyyy</p>
+    <p class="c1 c2 c3" >uuuuu</p>
+
+    <div class="dc b"> jg</div>
+    <section class="b" id="rr"> hryrte</section>
+
+   
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation Example</title>
+    <style>
+    .box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 10px; /* حواف مستديرة */
+    position: relative; /* لتحريك العنصر */
+    animation-name: move-diagonal-and-color; /* اسم الأنيميشن */
+    animation-duration: 4s; /* مدة الأنيميشن */
+    animation-iteration-count: infinite; /* يتكرر بشكل لا نهائي */
+    animation-timing-function: linear; /* حركة سلسة */
+    animation-direction: alternate; /* ذهاب وإياب */
+}
+
+    @keyframes move-diagonal-and-color {
+    0% {
+        transform: translate(0, 0); /* البداية: مكان العنصر الأصلي */
+        background-color: red;    /* اللون الأحمر */
+    }
+    50% {
+        transform: translate(200px, 200px); /* يتحرك قطريًا */
+        background-color: blue;       /* اللون الأزرق */
+    }
+    100% {
+        transform: translate(0, 0); /* يعود للمكان الأصلي */
+        background-color: green; /* اللون الأخضر */
+    }
+}
+    /* إعدادات الكرة */
+    .ball {
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    border-radius: 50%; /* يجعل العنصر دائريًا */
+    position: absolute;
+    bottom: 0; /* وضع العنصر أسفل الصفحة */
+    left: 50%; /* مركز الصفحة */
+    transform: translateX(-50%); /* لمحاذاة العنصر بشكل مركزي */
+    animation-name: bounce-and-scale; /* اسم الأنيميشن */
+    animation-duration: 2s; /* مدة الأنيميشن */
+    animation-iteration-count: infinite; /* يتكرر باستمرار */
+    animation-timing-function: ease-in-out; /* حركة سلسة */
+    }
+
+    /* تعريف الأنيميشن */
+    @keyframes bounce-and-scale {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0) scale(1); /* الوضع الأصلي */
+    }
+    50% {
+        transform: translateX(-50%) translateY(-150px) scale(1.2); /* ترتفع الكرة مع تكبير الحجم */
+    }
+    }
+    /* إعدادات الدائرة */
+    .circle {
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    border-radius: 50%; /* لجعل العنصر دائريًا */
+    margin: 50px auto; /* لتوسيط العنصر */
+    position: relative;
+    animation: rotate-and-pulse 3s infinite; /* اسم الأنيميشن مع مدته وتكراره */
+    }
+
+    /* تعريف الأنيميشن */
+    @keyframes rotate-and-pulse {
+    0% {
+        transform: scale(1) rotate(0deg); /* الحجم الطبيعي والدوران عند 0 درجة */
+        background-color: purple; /* اللون الأصلي */
+    }
+    50% {
+        transform: scale(1.5) rotate(180deg); /* تكبير الحجم إلى 1.5 ودوران 180 درجة */
+        background-color: magenta; /* تغيير اللون */
+    }
+    100% {
+        transform: scale(1) rotate(360deg); /* العودة للحجم الطبيعي ودوران 360 درجة */
+        background-color: purple; /* العودة للون الأصلي */
+    }
+    }
+        /* إعدادات الشكل الأساسي */
+    .fancy-shape {
+    width: 100px;
+    height: 100px;
+    background-color: crimson;
+    border-radius: 0%; /* يبدأ كمربع */
+    position: absolute; /* يسمح بالحركة */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: transform-shape 6s infinite ease-in-out; /* الأنيميشن الأساسي */
+    }
+
+    /* تعريف الأنيميشن */
+    @keyframes transform-shape {
+    0% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        border-radius: 0%;
+        background-color: crimson;
+        opacity: 1; /* البداية: شكل كامل الظهور */
+    }
+    25% {
+        transform: translate(-150px, -150px) scale(1.2) rotate(90deg);
+        border-radius: 50%;
+        background-color: orange;
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(150px, -150px) scale(1.5) rotate(180deg);
+        border-radius: 25%;
+        background-color: limegreen;
+        opacity: 0.6;
+    }
+    75% {
+        transform: translate(150px, 150px) scale(0.8) rotate(270deg);
+        border-radius: 50%;
+        background-color: royalblue;
+        opacity: 0.4;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotate(360deg);
+        border-radius: 0%;
+        background-color: crimson;
+        opacity: 1; /* يعود للشكل الأصلي */
+    }
+    }
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="box"></div>
+    <div class="ball"></div>
+    <div class="circle"></div>
+    <div class="fancy-shape"></div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlapping Elements Example</title>
+    <style>
+        /* Base styles */
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+        }
+
+        /* Element 1: Red Box */
+        .red-box {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            z-index: 2; /* Higher stacking level */
+        }
+
+        /* Element 2: Blue Box */
+        .blue-box {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            z-index: 1; /* Lower stacking level */
+        }
+
+        /* Element 3: Green Box */
+        .green-box {
+            position: absolute;
+            top: 110px;
+            left: 110px;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            z-index: -1; /* Negative stacking level */
+        }
+        .circle {
+            width: 150px;               /* Width of the circle */
+            height: 150px;              /* Height of the circle (equal to width) */
+            border: 5px solid blue;     /* Border thickness and color */
+            border-radius: 100%;         /* Makes the shape circular */
+            background-color: lightblue;/* Background color inside the circle */
+            display: flex;              /* For centering content */
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Overlapping Elements Example</h1>
+    <div class="container">
+        <div class="red-box"></div>
+        <div class="blue-box"></div>
+        <div class="green-box"></div>
+    </div>
+
+    <h1>Circle Border Example</h1>
+    <div class="circle">
+        Circle
+    </div>
+
+    <figure>
+        <img src="https://via.placeholder.com/200" alt="Another Placeholder Image" width="200" height="150">
+        <figcaption>A smaller placeholder image with another caption.</figcaption>
+    </figure>
+
+
+
+    <h1>Interactive Image Map</h1>
+    <p>Click on different areas of the image to navigate to different pages:</p>
+    <img src="color.jpg" width="200" height="200" usemap="#image_map" alt="Sample Image Map">
+
+    <map name="image_map">
+        <!-- Rectangle area -->
+        <area href="index.html" shape="rect" coords="13,16,83,90" alt="Home">
+        <!-- Circle area -->
+        <area href="page2.html" shape="circle" coords="58,147,32" alt="Page 2">
+        <!-- Polygon area -->
+        <area href="page3.html" shape="poly" coords="108,31,158,51,181,155,139,147,103,65,108,31" alt="Page 3">
+    </map>
+</body>
+</html>

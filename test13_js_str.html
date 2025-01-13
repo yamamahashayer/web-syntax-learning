@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript String and Array Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript String and Array Examples</h1>
+    <div id="output"></div>
+    <script>
+        function appendOutput(text) {
+            document.getElementById("output").innerHTML += `<pre>${text}</pre>`;
+        }
+
+        appendOutput("=== String Examples ===");
+
+        // 1. charAt(n)
+        let str = "JavaScript";
+        appendOutput("charAt(4): " + str.charAt(4)); // Output: S
+
+        // 2. slice(start, end)
+        appendOutput("slice(4, 10): " + str.slice(4, 10)); // Output: Script
+
+        // 3. substr(start, length)
+        appendOutput("substr(4, 3): " + str.substr(4, 3)); // Output: Scr
+
+        // 4. split(separator, limit)
+        let csv = "apple,banana,grape";
+        let fruits = csv.split(",", 2);
+        appendOutput("split(',', 2): " + JSON.stringify(fruits)); // Output: ["apple", "banana"]
+
+        // 5. Query string handling
+        let queryString = "name=John&age=30";
+        let queryArray = queryString.split("&");
+        appendOutput("Query string split by '&': " + JSON.stringify(queryArray)); // Output: ["name=John", "age=30"]
+
+        // 6. concat(string_1, string_2, ... string_n)
+        let part1 = "Hello";
+        let part2 = "World";
+        appendOutput("concat(' ', 'World'): " + part1.concat(" ", part2)); // Output: Hello World
+
+        // 7. indexOf() and lastIndexOf()
+        let myString1 = "String1";
+        let myStringN = myString1.concat("2", "3");
+        appendOutput("indexOf('g1'): " + myString1.indexOf("g1")); // Output: 5
+        appendOutput("lastIndexOf('2'): " + myStringN.lastIndexOf("2")); // Output: 7
+
+        // 8. replace(searchValue, replaceValue)
+        let replaced = myStringN.replace("123", "1234");
+        appendOutput("replace('123', '1234'): " + replaced); // Output: String1234
+
+        // 9. toUpperCase() and toLowerCase()
+        appendOutput("toUpperCase(): " + myStringN.toUpperCase()); // Output: STRING123
+        appendOutput("toLowerCase(): " + myStringN.toLowerCase()); // Output: string123
+
+        appendOutput("\n=== Array Examples ===");
+
+        // 1. Creating Arrays
+        let myNumbers = [42, 84, 12];
+        let myStrings = ["forty-two", "eighty-four", "twelve"];
+        appendOutput("myNumbers: " + JSON.stringify(myNumbers));
+        appendOutput("myStrings: " + JSON.stringify(myStrings));
+
+        // 2. concat()
+        let myNewArray = myNumbers.concat(myStrings);
+        appendOutput("concat: " + JSON.stringify(myNewArray));
+
+        // 3. join(separator)
+        let joined = myNewArray.join(", ");
+        appendOutput("join(', '): " + joined); // Output: 42, 84, 12, forty-two, eighty-four, twelve
+
+        // 4. slice(start, end)
+        let slicedArray = myNewArray.slice(0, 3);
+        appendOutput("slice(0, 3): " + JSON.stringify(slicedArray)); // Output: [42, 84, 12]
+
+        // 5. splice(startAt, toRemove, toAdd1, toAdd2, ...)
+        let newArray = [];
+        newArray.splice(0, 0, "1", "two", 3);
+        appendOutput("splice(0, 0, '1', 'two', 3): " + JSON.stringify(newArray)); // Output: ["1", "two", 3]
+
+        newArray.splice(1, 2, "twelve", "four");
+        appendOutput("splice(1, 2, 'twelve', 'four'): " + JSON.stringify(newArray)); // Output: ["1", "twelve", "four"]
+
+        // 6. Sorting with sort()
+        function compare(a, b) {
+            if (a < b) return -1;
+            if (a > b) return 1;
+            return 0;
+        }
+
+        let myArray = [1, 5, -3];
+        myArray.sort(compare);
+        appendOutput("sort with compare: " + JSON.stringify(myArray)); // Output: [-3, 1, 5]
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script> 
+        function getQSData(){
+            // Get the query string from the URL and split it by '&'
+            let qs = window.location.search.substring(1).split('&');
+            alert("Query String Array: " + qs);
+            
+            // Initialize an output string to store the key-value pairs
+            let output = "";
+            
+            // Loop through each key-value pair in the query string
+            for (let i = 0; i < qs.length; i++) {
+                // Split the key-value pair by '='
+                let pair = qs[i].split("=");
+                
+                // Decode and format the key and value
+                let key = decodeURIComponent(pair[0]);
+                let value = decodeURIComponent(pair[1] || "");
+                
+                // Append the key-value pair to the output string
+                output += key + " : " + value + "<br>";
+            }
+            
+            // Set the output string as the inner HTML of the qsData div
+            document.getElementById("qsData").innerHTML = output;
+        }
+        function ReadlsData() {
+            
+            // Retrieve data from localStorage
+            let stName = localStorage.getItem("stName");
+            let stGender = localStorage.getItem("stGender");
+
+        
+        }
+
+    </script>
+</head>
+<body onload="getQSData()">
+    <!-- <body onload=ReadlsData() > -->
+    <h1>Query String Data</h1>
+    <div id="qsData">
+        <!-- Query string key-value pairs will be displayed here -->
+    </div>
+</body>
+</html>

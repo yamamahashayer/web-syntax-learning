@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Full Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid #000;
+      margin: 20px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Canvas Full Example</h1>
+  <canvas id="myCanvas" width="800" height="600"></canvas>
+
+  <script>
+    // Get the canvas and context
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // 1. Draw a rectangle
+    ctx.fillStyle = "blue"; // Fill color
+    ctx.fillRect(50, 50, 200, 100); // x, y, width, height
+
+    // 2. Draw a line
+    ctx.beginPath();
+    ctx.moveTo(300, 50); // Start point
+    ctx.lineTo(500, 150); // End point
+    ctx.strokeStyle = "green"; // Line color
+    ctx.lineWidth = 4; // Line width
+    ctx.stroke(); // Draw the line
+
+    // 3. Draw a circle
+    ctx.beginPath();
+    ctx.arc(650, 100, 50, 0, Math.PI , false); // x, y, radius, startAngle, endAngle
+    ctx.fillStyle = "red"; // Circle fill color
+    ctx.fill();
+
+    // 4. Add text
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "purple";
+    ctx.fillText("Hello Canvas!", 300, 250);
+
+    // 5. Draw an image
+    const img = new Image();
+    img.onload = function () {
+      ctx.drawImage(img, 50, 300, 200, 150); // x, y, width, height
+    };
+    img.src = "https://via.placeholder.com/200";
+
+    // 6. Create a gradient
+    const gradient = ctx.createLinearGradient(300, 300, 500, 300); // x0, y0, x1, y1
+    gradient.addColorStop(0, "orange"); // Start color
+    gradient.addColorStop(1, "pink"); // End color
+    ctx.fillStyle = gradient;
+    ctx.fillRect(300, 300, 200, 150); // Gradient rectangle
+
+    // 7. Animation: Bouncing Ball
+    let x = 650;
+    let y = 400;
+    let dx = 3; // Ball horizontal speed
+    let dy = 2; // Ball vertical speed
+    const radius = 20;
+
+    function drawBall() {
+      // Clear the previous frame
+      ctx.clearRect(600, 350, 200, 150);
+
+      // Draw the ball
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+      ctx.fillStyle = "blue";
+      ctx.fill();
+      ctx.closePath();
+
+      // Update ball position
+      if (x + dx > canvas.width - radius || x + dx < 600 + radius) dx = -dx;
+      if (y + dy > 500 - radius || y + dy < 350 + radius) dy = -dy;
+      x += dx;
+      y += dy;
+
+      // Animate
+      requestAnimationFrame(drawBall);
+    }
+
+    drawBall();
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .RedparaTest{
+            border: 3px rgb(248, 8, 8) solid;
+        }
+        .BackgroundparaTest{
+            background-color: rgb(123, 107, 87);
+        }
+    </style>
+
+</head>
+<body>
+    <a href="javascript:void(0);" onclick="window.open('/test4_js.html','title','width=300,height=300')">Click this for pop up </a>
+    <br>
+    <br>
+
+    <img src="/black.jpg" alt="img" 
+    style="width: 200px; height: 200px;"
+    onmouseover="this.src='/color.jpg' "
+    onmouseout="this.src='/black.jpg' ">
+
+    <!-- <br>
+    <img src="/black.jpg" alt="img" 
+    style="width: 200px; height: 200px;" 
+    onmouseover="this.style.width='400px'; this.style.height='400px';" 
+    onmouseout="this.style.width='200px'; this.style.height='200px';" >
+            -->
+    <br>
+    <br>
+    <img src="/black.jpg" alt="img" 
+    style="width: 200px; height: 200px;" 
+    onmouseover= smalling(this);
+    onmouseout= beging(this);>
+    <hr>
+    <hr>
+
+    <button onclick="showHidepara()">showHidepara</button>
+    <p id="para1">1yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+    <p id="para2">2yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+    <p id="para3">3yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</p>
+    <button onclick="showHidepara2()">showHidepara</button>    
+    
+
+    <h1 id="tochange">tochange</h1>
+    <input type="text " id="txt_text">
+    <button onclick="changtext()">changtext h1</button>
+
+    <h1 id="tochange2">tochange</h1>
+    <input type="text " id="txt_text2">
+    <button onclick="changtext2()">changtext h1</button>
+
+
+
+
+    <button onclick="TestJsLang()"> test lang </button>
+
+
+
+    <hr>
+    <button onclick="addBorder()">test add class</button>
+    <button onclick="addbackground()"> test add class </button>
+    <div id="testaddingtoClass">
+    <p class="RedparaTest">  test par test par test par test par test par test par test par test par test par test par test par </p>
+    <p>  test par test par test par test par test par test par test par test par test par test par test par </p>
+    <p>  test par test par test par test par test par test par test par test par test par test par test par </p>
+    <p>  test par test par test par test par test par test par test par test par test par test par test par </p>
+    </div>
+    <script> 
+       // document.write(screen.width);
+        function smalling( im){
+            im.style.width='50px';
+            im.style.height='50px';  
+        }
+        function beging( im){
+            im.style.width='500px';
+            im.style.height='500px';  
+        }
+
+
+        // var y=20;
+        // var y=40;
+        // console.log(y);   //it print y=40  'redeclaration' if console.log(y) befor it print undefind 
+        
+        let showhid=1;
+        function showHidepara(){
+            if (showhid ==1){
+            document.getElementById("para1").style.display="none";
+            showhid=0;}
+            else{
+                document.getElementById("para1").style.display="block"; 
+                showhid=1   
+            }
+            
+        }
+        function showHidepara2() {
+            const para = document.getElementById("para2");
+            if (showhid == 1) {
+                para.style.visibility = "hidden"; // Hide the element but keep its space
+                showhid = 0;
+            } else {
+                para.style.visibility = "visible"; // Make the element visible again
+                showhid = 1;
+            }
+        }
+
+        function changtext(){
+            let txt=document.getElementById("txt_text").value;
+        document.getElementById('tochange').innerText=txt;
+        }
+        function changtext2(){
+            let txt=document.getElementById("txt_text2").value;
+        document.getElementById('tochange2').innerHTML=txt;
+        }
+
+        function TestJsLang(){
+        let AR =new Array(10);
+        AR[0]='hi';
+        AR[1]='hii';
+        AR[2]='hiii';
+        for (let i=0 ;i<3;i++){
+            alert("i=" + i +""+AR[i]);
+        }
+            }
+
+            let fruits = ["Apple", "Banana", "Cherry"];
+            console.log(fruits); // Output: ["Apple", "Banana", "Cherry"]
+            const name = "أحمد";
+            const greeting = `مرحبًا، ${name}`;
+            console.log(greeting); // الناتج: مرحبًا، أحمد
+
+
+
+        function addBorder(){
+            document.getElementById("testaddingtoClass").classList.add("RedparaTest");
+        }
+        function addbackground(){
+            let divv= document.getElementById("testaddingtoClass")
+            let paraa=document.getElementsByTagName("p");
+            for(let i=0; i<paraa.length ;i++){
+                paraa[i].classList.add("BackgroundparaTest")
+            }
+
+            // // Using querySelectorAll to select all <p> tags inside the div
+            // const paragraphs = document.querySelectorAll("#testaddingtoClass p");
+            // paragraphs.forEach(para => {
+            //     para.classList.add("BackgroundparaTest");
+            // });
+
+                }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2 - Display Data</title>
+    <script>
+        function displayData() {
+            // Query string handling
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const nameFromQuery = urlParams.get("name");
+            const ageFromQuery = urlParams.get("age");
+            const genderFromQuery = urlParams.get("gender");
+
+            document.getElementById("queryData").innerHTML =
+                `<strong>Query String Data:</strong><br>
+                    Name: ${nameFromQuery}<br>
+                    Age: ${ageFromQuery}<br>
+                    Gender: ${genderFromQuery}`;
+
+            // Local storage handling
+            const nameFromLS = localStorage.getItem("name");
+            const ageFromLS = localStorage.getItem("age");
+            const genderFromLS = localStorage.getItem("gender");
+
+            document.getElementById("localStorageData").innerHTML =
+                    `<strong>Local Storage Data:</strong><br>
+                    Name: ${nameFromLS}<br>
+                    Age: ${ageFromLS}<br>
+                    Gender: ${genderFromLS}`;  
+            }
+    </script>
+</head>
+<body onload="displayData()">
+    <h1>Data from Query String and Local Storage</h1>
+    <div id="queryData"></div>
+    <br>
+    <div id="localStorageData"></div>
+</body>
+</html>
